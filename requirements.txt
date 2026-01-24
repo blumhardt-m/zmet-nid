@@ -1,0 +1,9 @@
+# ZMET-NID Dependencies
+uproot>=5.0
+awkward>=2.0
+numpy>=1.20
+scipy>=1.7
+matplotlib>=3.5
+pandas>=1.3
+hist>=2.6
+mplhep>=0.3
