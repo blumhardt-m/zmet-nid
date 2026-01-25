@@ -1,0 +1,12 @@
+============================================================
+ZMET-NID Phase 0 Feasibility Gates
+============================================================
+[INFO] FILE_URL = root://eospublic.cern.ch//eos/opendata/cms/Run2016H/DoubleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/2510000/127C2975-1B1C-A046-AABF-62B77E757A86.root
+[G0 SKIP] Non-HTTP URL (likely local file).
+[G1 FAIL] Cannot open file with uproot: Unable to load filesystem from EntryPoint(name='root', value='fsspec_xrootd:XRootDFileSystem', group='fsspec.specs')
+[G2 SKIP] No tree available.
+[G3 SKIP] No tree available.
+============================================================
+SUMMARY
+============================================================
+RESULT: FAIL (G1 connectivity). Fix data access.
