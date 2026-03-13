@@ -1,66 +1,145 @@
 # 4. Nuisance Model Families
 
-The objective of this section is to define a small set of competing nuisance model families that represent distinct, physically plausible explanations for missing transverse momentum (MET) tails, as could reasonably be entertained by an external analyst using CMS Open Data at the NanoAOD tier. These models are not intended to reproduce collaboration-grade systematic uncertainty procedures, nor to provide a complete description of detector effects. Rather, they are designed to probe identifiability: whether different causal explanations can be distinguished given the available observables.
+## 4.1 Motivation for phenomenological nuisance families
 
-## 4.1 Design Principles
+The nuisance models considered here are intentionally low-dimensional
+phenomenological parameterisations. Their purpose is not to reproduce
+collaboration-grade detector systematic models, but to represent distinct classes
+of physical explanations for distortions in the missing transverse momentum
+distribution that an external analyst might entertain when working with CMS Open
+Data. The analysis evaluates whether such incompatible mechanisms can produce
+indistinguishable agreement with the inclusive observable when only reduced-tier
+information is available.
 
-All nuisance models introduced in this work satisfy the following constraints:
+Two families are considered, each parameterised by a single continuous scalar.
+Low dimensionality is deliberate: excessive model flexibility would trivially
+explain any distributional feature, making non-identifiability uninformative. A
+single-parameter family imposes a strong constraint on the allowed distortion
+shape; degeneracy under such a constraint is therefore a meaningful result.
 
-**Public-tier implementability:**
-Models operate only on observables available in NanoAOD and do not require recomputation of MET from lower-level constituents.
+The two families are mutually incompatible in mechanism: one alters the MET
+magnitude of individual events, the other alters the population weights across
+event topologies. Agreement on the inclusive distribution is therefore not
+tautological but reflects a genuine degeneracy of the marginal projection.
 
-**Low dimensionality:**
-Each model is parameterized by a small number of free parameters, to avoid overfitting and to ensure that any observed degeneracy is not an artifact of excessive flexibility.
+## 4.2 Fitting strategy
 
-**Physical plausibility:**
-Model dependencies are motivated by well-established correlations between MET behavior and event-level quantities such as jet activity or pileup.
+The identifiability test is implemented as a controlled injection. Family A is
+applied to the nominal MET distribution at a known working point α₀, producing a
+target distribution that represents a specific, calibrated departure from the
+nominal. Family B is then independently fitted to the same target by grid search
+over its parameter β. Fit quality is quantified using the χ² statistic:
 
-**Mutual incompatibility:**
-The model families encode qualitatively different mechanisms, such that agreement between them is not tautological.
+    χ² = Σ_k (h_k^model − h_k^target)² / (h_k^target + 1)
 
-## 4.2 Reference Observable
+where h_k denotes the bin count in histogram bin k, and the (obs + 1) denominator
+provides stability in bins with low target occupancy. Degrees of freedom for
+Family B are n_bins − 1 fitted parameter.
 
-Let E_T^miss denote the reconstructed MET magnitude provided in NanoAOD. All nuisance models act multiplicatively on this quantity in simulation:
+Inclusive fit quality determines the working point. For a given α₀, if Family B
+achieves an acceptable p-value on the inclusive χ², the two families are
+non-identifiable on the inclusive projection. Stratified comparisons are then
+applied at the inclusive best-fit parameters, without per-stratum refitting, to
+test whether conditional projections restore discrimination.
 
-E_T,model^miss = E_T^miss × f(x; θ)
+The simplified χ² goodness-of-fit criterion should be understood as a diagnostic
+tool for comparing nuisance mechanisms rather than as a full profile-likelihood
+inference in the standard LHC sense [12]. The goal is not optimal parameter
+estimation but the detection of inclusive degeneracy and its resolution through
+conditional projections.
 
-where x denotes a set of available event-level observables and θ denotes the nuisance parameters.
+## 4.3 Family A — Recoil-Response Distortion
 
-The multiplicative form is chosen to preserve the qualitative shape of the MET distribution while allowing controlled broadening of the tail.
+Family A represents the hypothesis that MET tails arise from a miscalibrated
+hadronic recoil response. In Z→μ⁺μ⁻ events, the Z boson recoils against hadronic
+activity, and the magnitude of the MET reflects the vector imbalance of that
+recoil. A fractional miscalibration in the hadronic response would shift the
+reconstructed MET proportionally to the recoil magnitude, which is directly
+approximated by pT(Z), the transverse momentum of the dimuon system.
 
-## 4.3 Family A: Jet-Correlated MET Broadening
+The model modifies the event-level MET as:
 
-The first nuisance family represents the hypothesis that MET tails are primarily correlated with hadronic activity, reflecting jet energy mismeasurement, rare jet reconstruction pathologies, or residual jet-related effects not fully captured in simulation.
+    MET'_i = MET_i × (1 + α × clip(pT(Z)_i, 0, 100) / 100)
 
-We parameterize this family as:
+where pT(Z)_i is the dimuon transverse momentum in GeV, clip(·, 0, 100) caps the
+effective recoil scale at 100 GeV to prevent unbounded scaling in the high-recoil
+tail, and α is the distortion amplitude. Positive α inflates MET; negative α
+deflates it.
 
-f_A(x; θ_A) = 1 + α·N_jet + γ·max(0, (p_T^lead - p_T^0)/p_T^0)
+The parameter search range is α ∈ [−0.30, +0.30] in steps of 0.01. The injection
+working point used throughout this analysis is α₀ = 0.05, corresponding to a 5%
+maximum MET scale distortion in the highest-recoil events, scaling linearly with
+pT(Z) below 100 GeV. Family A leaves the relative population of jet-multiplicity
+categories unchanged.
 
-where:
-- N_jet is the number of reconstructed jets above a fixed transverse momentum threshold
-- p_T^lead is the transverse momentum of the leading jet
-- p_T^0 is a fixed reference scale (chosen here as 30 GeV)
-- θ_A = {α, γ} are free parameters
+## 4.4 Family B — Topology-Mixture Reweighting
 
-This form captures two intuitive effects: a global scaling with jet multiplicity and an additional contribution from particularly energetic leading jets. No attempt is made to model jet response at the constituent level, which is inaccessible in NanoAOD.
+Family B represents the hypothesis that MET tails arise from a shift in the
+event-topology composition of the sample rather than from a miscalibration of the
+MET scale within any given topology. Such distortions may arise from mismodelling
+of jet production rates, residual efficiency corrections that vary across jet
+categories, or other effects that alter the effective mixture of zero-jet, one-jet,
+and multi-jet events contributing to the inclusive distribution.
 
-## 4.4 Family B: Pileup-Correlated MET Broadening
+The model applies per-event weights according to jet multiplicity:
 
-The second nuisance family represents the hypothesis that MET tails are dominated by pileup-related effects, such as imperfect subtraction of diffuse energy from additional proton–proton interactions.
+| Jet category | Weight |
+|---|---|
+| 0 jets | 1 |
+| 1 jet  | 1 + β |
+| ≥2 jets | 1 + 2β |
 
-This family is parameterized as:
+Jet multiplicity is counted using the same cleaned jet definition as in the event
+selection (pT > 30 GeV, ΔR > 0.4 from both Z-candidate muons; Section 3.4).
+The weights are normalised so that the total weighted event count equals the
+unweighted count, preserving the inclusive sample size.
 
-f_B(x; θ_B) = 1 + β·max(0, (N_PV - N_PV^0)/N_PV^0)
+The parameter β controls the degree to which jet-rich topologies are upweighted
+relative to zero-jet events. The search range is β ∈ [−0.40, +0.40] in steps of
+0.01. At β > 0, events with more jets are upweighted, shifting the inclusive MET
+distribution toward higher values because multi-jet events have systematically
+larger MET than zero-jet events.
 
-where:
-- N_PV is the number of reconstructed primary vertices
-- N_PV^0 is a fixed reference value
-- θ_B = {β} is the nuisance parameter
+Crucially, Family B does not alter the MET value of any individual event. It
+changes only the effective population of each jet-multiplicity stratum.
 
-This model encodes a monotonic dependence of MET broadening on pileup activity without introducing additional shape degrees of freedom.
+## 4.5 Mechanistic Contrast
 
-## 4.5 Scope and Interpretation
+The two families modify the inclusive MET distribution through fundamentally
+different mechanisms:
 
-Both nuisance families are deliberately phenomenological. They do not correspond to official CMS systematic uncertainty variations, nor are they intended to provide a faithful detector simulation. Their role is instead comparative: to test whether distinct, physically motivated explanations can be tuned to reproduce observed MET distributions while implying different causal narratives.
+| | Family A | Family B |
+|---|---|---|
+| **Mechanism** | Recoil-response distortion | Topology-mixture reweighting |
+| **Parameter** | α | β |
+| **Effect on event-level MET** | Scales MET with pT(Z) | None |
+| **Effect on jet-category populations** | None | Upweights multi-jet events |
+| **Injection working point** | α = 0.05 | β = +0.290 (best fit) |
 
-If these families can be distinguished using public-tier observables, this indicates identifiability under the given representation. Conversely, if they remain degenerate under standard validation strategies, this indicates a limitation on mechanistic attribution imposed by reduced observability.
+Family A is sensitive to the recoil–MET relationship and is exposed by
+conditioning on pT(Z). Family B is sensitive to population consistency across jet
+categories and is exposed by conditioning on jet multiplicity. Neither diagnostic
+is implicit in the inclusive MET distribution, which is what makes the inclusive
+degeneracy possible.
+
+## 4.6 Scope of Nuisance Parameterisations
+
+The nuisance models used in this study are intentionally simplified representations
+of broader classes of detector and modelling effects. The goal is not to reproduce
+collaboration-grade systematic uncertainties, which require detailed detector
+simulation and calibration studies, but to construct phenomenological families that
+capture distinct mechanisms by which the inclusive MET distribution may be
+distorted. The analysis therefore tests identifiability at the level of mechanism
+rather than at the level of detailed detector modelling.
+
+If two mechanistically distinct nuisance explanations cannot be distinguished in
+the inclusive projection even in this simplified setting, the ambiguity will
+persist — and likely worsen — for more realistic high-dimensional systematic
+models. The simplified parameterisations therefore provide a conservative lower
+bound on the identifiability challenge: demonstrating degeneracy here implies that
+more complex nuisance families face at least as severe an identifiability
+constraint. Because the nuisance families are restricted to a single parameter,
+the degeneracy demonstrated in the inclusive projection represents a conservative
+lower bound on the identifiability challenge. Increasing the dimensionality of
+the nuisance parameterisation without introducing additional observables generally
+enlarges the space of distributions compatible with the data rather than reducing it.

@@ -8,7 +8,7 @@ CMS Open Data are released in multiple data tiers that differ in information con
 
 This design necessarily entails a loss of low-level information. In particular, NanoAOD does not provide access to individual particle-flow candidates, detailed reconstruction intermediates, or the full sequence of corrections and calibrations applied internally within CMS. As a result, certain detector effects—especially those associated with unclustered energy, rare reconstruction pathologies, or detailed pileup mitigation algorithms—cannot be independently recomputed or varied by external analysts.
 
-The present work explicitly embraces these constraints. Rather than treating reduced observability as a limitation to be overcome, we treat it as a defining feature of the inference problem under study.
+The present work explicitly embraces these constraints. Rather than treating reduced observability as a limitation to be overcome, such compression is treated as a defining feature of the inference problem under study.
 
 ## 2.2 MET Representation in NanoAOD
 
@@ -26,7 +26,7 @@ Nuisance models introduced in this work are therefore applied at the level of th
 
 ## 2.4 Deliberate Scope Limitations
 
-For clarity, we emphasize the following scope restrictions:
+For clarity, the following scope restrictions apply:
 
 - This work does not attempt to validate or supersede CMS MET performance studies.
 - No detector-level recalibration or re-reconstruction is performed.

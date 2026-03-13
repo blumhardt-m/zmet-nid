@@ -1,0 +1,21 @@
+---
+title: "Diagnosing non-identifiability in missing transverse momentum interpretations using CMS Open Data"
+author:
+  - Michael Blumhardt
+date: 2026
+geometry: "margin=2.5cm"
+fontsize: 11pt
+linestretch: 1.4
+mainfont: "DejaVu Serif"
+monofont: "DejaVu Sans Mono"
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+header-includes:
+  - \usepackage{amsmath}
+  - \usepackage{booktabs}
+  - \usepackage{float}
+  - \floatplacement{figure}{H}
+  - \usepackage{caption}
+  - \captionsetup{font=small, labelfont=bf}
+---
