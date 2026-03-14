@@ -279,7 +279,7 @@ stronger conditional exposure.
 | B      | Topology-mixture          | 3.13         | 0.989   | 3,415   |
 | C      | Unclustered-energy shift  | 18.28        | 0.075   | 58      |
 
-Figure 5 summarizes the identifiability structure of the nuisance families: while several configurations exhibit strong inclusive agreement with the observed MET distribution, stratified diagnostics reveal large conditional discrepancies once the data are partitioned by recoil-sensitive variables.
+Figure \ref{fig:identifiability_landscape} summarizes the degeneracy structure of the nuisance families: several configurations that exhibit strong inclusive agreement with the observed MET distribution separate once conditional diagnostics are applied.
 
 \begin{figure}[t]
 \centering
