@@ -2,7 +2,10 @@
 
 After the selection described in Section 3, a total of 233,524 Z→μ⁺μ⁻
 candidate events remain from 2,147,195 processed events. All quantitative
-comparisons in this section use this selected sample.
+comparisons in this section use this selected sample. Because the analysis
+operates directly on reconstructed CMS Open Data events, the observed degeneracy
+reflects the behavior of realistic collider data products rather than properties
+of a specific simulation model.
 
 The three nuisance families examined here occupy distinct positions along an
 identifiability spectrum: Family A represents the injected truth, Family B

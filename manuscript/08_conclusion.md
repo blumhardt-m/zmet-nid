@@ -49,7 +49,9 @@ central finding — that inclusive MET in Z→μ⁺μ⁻ events admits multiple
 nuisance explanations at physically plausible distortion amplitudes, while
 stratified projections distinguish them — demonstrates the interpretability
 risk in reduced-observability analyses and points toward a straightforward
-mitigation strategy.
+mitigation strategy. The use of real CMS Open Data events ensures that the
+observed degeneracy arises from properties of reduced collider observables
+themselves rather than artifacts of a particular simulation framework.
 
 All analysis scripts and the frozen protocol used in this study are available
 in the accompanying repository, tagged at the version corresponding to this
