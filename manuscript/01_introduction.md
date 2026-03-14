@@ -1,6 +1,6 @@
 # 1. Introduction
 
-Analyses performed on compressed or reduced-tier datasets face an intrinsic statistical challenge: distinct physical mechanisms can produce indistinguishable predictions for marginal observables when latent structure is integrated out. In such settings, agreement between model and data in a one-dimensional validation distribution does not guarantee that the underlying nuisance mechanism is uniquely identified. This problem becomes particularly relevant for external analyses using publicly released collider datasets, where the available observables are intentionally compressed relative to the full detector reconstruction.
+Analyses performed on compressed or reduced-tier datasets face an intrinsic statistical challenge: distinct physical mechanisms can produce indistinguishable predictions for marginal observables when latent structure is integrated out. In such settings, agreement between model and data in a one-dimensional validation distribution does not guarantee that the underlying nuisance mechanism is uniquely identified. This problem becomes particularly relevant for external analyses using publicly released collider datasets, where the available observables are intentionally compressed relative to the full detector reconstruction. This work addresses a general inference problem in collider analyses: when high-dimensional event records are compressed into reduced observables, distinct nuisance mechanisms can become indistinguishable in standard validation distributions.
 
 Collider analyses typically operate on reduced observables obtained from high-dimensional event records. Denoting the full reconstructed event record as X and the reduced observable as Y = R(X), the projection R discards information present in X that is not retained in Y. Because Y arises from such a projection, it is not generally a sufficient statistic for the underlying nuisance mechanisms: distinct values of a nuisance parameter θ can produce the same distribution P(Y | θ) even when P(X | θ) differs. Consequently, distinct physical mechanisms can produce indistinguishable inclusive distributions of a reduced observable even when their full-event descriptions differ.
 
@@ -41,3 +41,22 @@ Rather than attempting to reproduce collaboration-grade MET systematics or to pr
 Using a controlled injection framework and a χ² fit criterion, the analysis evaluates whether these nuisance families can be tuned to reproduce the same target MET distribution and whether the inclusive projection is sufficient to discriminate between them. The effectiveness of stratified diagnostics — conditioned on pT(Z) and jet multiplicity, both available in NanoAOD — is further examined for their ability to break the inclusive degeneracy.
 
 By quantifying when and how such degeneracies persist, this work aims to delineate an inference boundary relevant to external analyses of CMS Open Data. The results are not intended to challenge the validity of CMS MET performance studies, but rather to clarify what kinds of mechanistic conclusions are and are not supported by reduced-tier public representations. More broadly, the approach provides a template for assessing identifiability limits of high-level observables in open collider datasets. The goal of this study is therefore not to propose an improved model of MET, but to map how different nuisance mechanisms project onto compressed observables and to identify simple diagnostics that restore mechanistic discrimination.
+
+Figure \ref{fig:identifiability_landscape} summarizes the central argument of this paper. Distinct nuisance mechanisms can reproduce indistinguishable inclusive distributions of a reduced observable, while conditional diagnostics reveal statistically significant divergence.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{figures/identifiability_landscape.pdf}
+\caption{
+Identifiability landscape for nuisance mechanism families studied in this work.
+The horizontal axis shows inclusive goodness-of-fit to the injected target MET
+distribution; higher values indicate stronger inclusive agreement and deeper
+degeneracy risk. The vertical axis shows the maximum conditional discrepancy
+across recoil and jet-multiplicity strata (symlog scale).
+Configurations in the upper-right region pass inclusive validation while
+producing large conditional discrepancies, illustrating how compression of
+collider events into reduced observables can mask mechanistic differences
+between nuisance models. Quantitative results are presented in Section 6.
+}
+\label{fig:identifiability_landscape}
+\end{figure}

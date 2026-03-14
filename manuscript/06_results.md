@@ -10,8 +10,9 @@ of a specific simulation model.
 The three nuisance families examined here occupy distinct positions along an
 identifiability spectrum: Family A represents the injected truth, Family B
 exhibits deep inclusive degeneracy, and Family C lies near the boundary of
-inclusive discriminability. Figure 5 provides a summary of this landscape at the
-end of this section.
+inclusive discriminability. The identifiability landscape (Figure \ref{fig:identifiability_landscape},
+shown at the end of the Introduction) summarizes these positions; the subsections
+below present the underlying evidence.
 
 The results are organised as follows. Section 6.1 presents the inclusive
 missing transverse momentum comparison, which establishes the working point
@@ -49,7 +50,7 @@ Family A, which generated the target, trivially achieves χ² = 0.
 Family B achieves χ²(B) = 3.13 on 11 degrees of freedom, corresponding to
 p = 0.989. The inclusive projection provides no statistical basis to reject
 the topology-mixture model at this working point. The result is shown
-visually in Fig. 1, which presents the inclusive MET distributions for the
+visually in Fig. 2, which presents the inclusive MET distributions for the
 target, Family A, and Family B on a logarithmic scale, together with the
 ratio of each model to the target in the lower panel. The three distributions
 are visually indistinguishable across the bulk of the spectrum (MET < 100 GeV);
@@ -67,11 +68,13 @@ events with replacement from the target and is compared against the target
 histogram directly. The resulting null distribution has a median of χ² = 10.6
 and spans the range 2.2–29.8. The χ²(B) = 3.13 obtained for the
 topology-mixture family falls at the 1.2nd percentile of this distribution
-(Fig. 2), demonstrating that the inclusive agreement of Family B is not merely
+(Fig. 3), demonstrating that the inclusive agreement of Family B is not merely
 within the formal rejection threshold but is substantially better than the
 typical level of sampling variability intrinsic to the target histogram itself.
 The topology-mixture model, with its smooth optimised-weight histogram, provides
 a fit quality well inside the noise floor of the target distribution.
+
+Notably, the topology-mixture model reproduces the inclusive distribution more closely than nearly any bootstrap resampling of the data itself: its χ² = 3.13 lies at the 1.2nd percentile of the empirical noise floor, indicating that the apparent agreement is far stronger than typical sampling variability in the distribution.
 
 ![Inclusive MET distributions for the target (black), Family A (dashed red), Family B (dotted blue), and Family C (dash-dot green) on a logarithmic scale. The lower panel shows the ratio of each model to the target. Family B achieves χ²(B) = 3.13 (dof = 11, p = 0.989); Family C achieves χ²(C) = 18.28 (dof = 11, p = 0.075). All families are fitted to the inclusive histogram only. The sample comprises 233,524 Z→μ⁺μ⁻ candidates from CMS Open Data (DoubleMuon 2016).](figures/inclusive_fit/met_familyA_vs_familyB.png){width=85%}
 
@@ -115,7 +118,7 @@ perturbs the event composition in this stratum even when the MET-scale
 effect is negligible, producing a larger discrepancy than in the bin where
 the two effects partially cancel.
 
-The per-stratum MET distributions are shown in Fig. 3. In the three lower
+The per-stratum MET distributions are shown in Fig. 4. In the three lower
 pT(Z) bins, Family A and Family B are visually close to the target. In the
 highest pT(Z) bin, Family B is systematically elevated relative to the
 target at low MET values and slightly suppressed at higher MET, while
@@ -128,7 +131,7 @@ Family A tracks the target throughout.
 As a complementary test, both models were evaluated after conditioning on
 the number of jets with pT > 30 GeV, cleaned against the selected Z muons
 using ΔR > 0.4. The three jet categories follow the protocol binning:
-0-jet, 1-jet, and ≥2-jet. Results are shown in Table 3 and Fig. 4.
+0-jet, 1-jet, and ≥2-jet. Results are shown in Table 3 and Fig. 5.
 
 **Table 3.** Per-stratum discrimination by jet multiplicity. Δχ² = χ²(B) − χ²(A)
 evaluated using best-fit parameters from the inclusive fit.
@@ -257,7 +260,7 @@ relative population of jet multiplicity categories. Consequently, the
 jet-stratified diagnostics expose Family C less strongly than Family B, which
 explicitly distorts the event-topology mixture.
 
-Figure 1 shows the inclusive MET comparison including Family C alongside Families A
+Figure 2 shows the inclusive MET comparison including Family C alongside Families A
 and B. The unclustered-energy perturbation closely tracks the target distribution
 over most of the spectrum, but exhibits mild deviations in the intermediate MET
 region that account for the larger inclusive χ².
@@ -282,20 +285,4 @@ stronger conditional exposure.
 | B      | Topology-mixture          | 3.13         | 0.989   | 3,415   |
 | C      | Unclustered-energy shift  | 18.28        | 0.075   | 58      |
 
-Figure \ref{fig:identifiability_landscape} summarizes the degeneracy structure of the nuisance families: several configurations that exhibit strong inclusive agreement with the observed MET distribution separate once conditional diagnostics are applied.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.8\linewidth]{figures/identifiability_landscape.pdf}
-\caption{
-Identifiability landscape for nuisance mechanism families.
-The horizontal axis shows inclusive goodness-of-fit between simulated
-and observed MET distributions. The vertical axis shows the maximum
-conditional discrepancy across predefined strata.
-Configurations in the upper-right region exhibit strong inclusive
-agreement while producing large conditional discrepancies,
-illustrating how compression of collider events into reduced observables
-can mask mechanistic differences between nuisance models.
-}
-\label{fig:identifiability_landscape}
-\end{figure}
+The identifiability landscape (Figure \ref{fig:identifiability_landscape}) provides a compact visual summary of these results: Family B occupies the upper-right region of the landscape — deep inclusive degeneracy combined with large conditional discrepancy — while Family C lies near the inclusive acceptance boundary with modest conditional exposure.
