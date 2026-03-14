@@ -52,6 +52,10 @@ risk in reduced-observability analyses and points toward a straightforward
 mitigation strategy. The use of real CMS Open Data events ensures that the
 observed degeneracy arises from properties of reduced collider observables
 themselves rather than artifacts of a particular simulation framework.
+The analysis therefore illustrates a general limitation of inference based on
+reduced collider observables: agreement in inclusive validation distributions
+does not guarantee that the underlying nuisance mechanisms are uniquely
+determined.
 
 All analysis scripts and the frozen protocol used in this study are available
 in the accompanying repository, tagged at the version corresponding to this

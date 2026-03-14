@@ -49,7 +49,11 @@ region at the analysis working point.
 ## 5.1 Injection Framework
 
 A target distribution is constructed by applying Family A (recoil-response
-distortion) to the observed MET values at a fixed injection parameter α₀:
+distortion) to the observed MET values at a fixed injection parameter α₀.
+The nuisance configurations were tuned to reproduce the inclusive MET
+distribution, so large goodness-of-fit p-values are expected and serve only
+to confirm that the inclusive constraint has been satisfied; the nontrivial
+question is whether conditional projections can still distinguish the mechanisms.
 
     MET_target(i) = MET(i) × (1 + α₀ × clip(pT(Z)_i, 0, 100) / 100)
 
