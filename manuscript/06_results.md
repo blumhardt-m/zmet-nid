@@ -1,4 +1,4 @@
-# 7. Results
+# 6. Results
 
 After the selection described in Section 3, a total of 233,524 Z→μ⁺μ⁻
 candidate events remain from 2,147,195 processed events. All quantitative
@@ -10,16 +10,16 @@ exhibits deep inclusive degeneracy, and Family C lies near the boundary of
 inclusive discriminability. Figure 5 provides a summary of this landscape at the
 end of this section.
 
-The results are organised as follows. Section 7.1 presents the inclusive
+The results are organised as follows. Section 6.1 presents the inclusive
 missing transverse momentum comparison, which establishes the working point
-for the identifiability demonstration. Section 7.2 examines the same
+for the identifiability demonstration. Section 6.2 examines the same
 comparison after conditioning on pT(Z), the primary recoil variable.
-Section 7.3 presents the jet-multiplicity stratification. Section 7.4
-documents the robustness of the inclusive result to MET binning. Section 7.5
+Section 6.3 presents the jet-multiplicity stratification. Section 6.4
+documents the robustness of the inclusive result to MET binning. Section 6.5
 presents a physically grounded nuisance variation derived from CMS
 unclustered-energy systematic branches.
 
-## 7.1 Inclusive MET degeneracy
+## 6.1 Inclusive MET degeneracy
 
 The analysis sample consists of 233,524 Z→μ⁺μ⁻ candidates selected from
 CMS Open Data (DoubleMuon, 2016). Both nuisance families were fitted
@@ -74,7 +74,7 @@ a fit quality well inside the noise floor of the target distribution.
 
 ![Empirical null distribution of the inclusive χ² statistic from 1,000 bootstrap resamplings of the target MET histogram (blue). Each bootstrap sample draws 233,524 events with replacement from the target. The dashed red line marks χ²(B) = 3.13, the inclusive fit for Family B. The null median is χ² = 10.6 (dotted gray). Family B falls at the 1.2nd percentile of the null, confirming that the inclusive agreement is well within the sampling noise floor of the target distribution.](figures/inclusive_fit/null_chi2_distribution.png){width=75%}
 
-## 7.2 Recoil-stratified MET distributions
+## 6.2 Recoil-stratified MET distributions
 
 To probe whether the inclusive degeneracy conceals differences in the
 internal event structure, both models were evaluated—without refitting—in
@@ -120,7 +120,7 @@ Family A tracks the target throughout.
 
 ![MET distributions in four pT(Z) strata: < 10 GeV (N = 92,608), 10–30 GeV (N = 89,387), 30–60 GeV (N = 34,312), and ≥60 GeV (N = 17,217). Target (black), Family A (dashed red), Family B (dotted blue), and Family C (dash-dot green) are shown at inclusive best-fit parameters without per-stratum refitting. The per-stratum discrimination Δχ²(B) = χ²(B) − χ²(A) grows with recoil activity, reaching Δχ² = 1,432 in the highest bin. Family C produces Δχ²(C) = 58 in the highest pT(Z) bin.](figures/stratified_tests/met_familyA_vs_familyB_by_zpt.png){width=100%}
 
-## 7.3 Jet-multiplicity stratification
+## 6.3 Jet-multiplicity stratification
 
 As a complementary test, both models were evaluated after conditioning on
 the number of jets with pT > 30 GeV, cleaned against the selected Z muons
@@ -170,9 +170,9 @@ absent from the inclusive distribution. The two stratifications probe
 different latent assumptions: pT(Z) conditioning tests the MET–recoil
 relationship, while jet-multiplicity conditioning tests the population model.
 
-## 7.4 Robustness to MET binning
+## 6.4 Robustness to MET binning
 
-The inclusive degeneracy demonstrated in Section 7.1 was evaluated under
+The inclusive degeneracy demonstrated in Section 6.1 was evaluated under
 two alternative MET binning schemes in addition to the baseline (12 bins):
 a coarser binning with 9 bins merging adjacent low-MET intervals, and a
 tail-emphasised binning with modified boundaries above 50 GeV. In all three
@@ -188,7 +188,7 @@ amplitudes, conditional projections restore discriminability by exposing
 violations of either recoil–response structure or event-population
 consistency.
 
-## 7.5 Physically grounded public-tier nuisance variation
+## 6.5 Physically grounded public-tier nuisance variation
 
 To test whether the inclusive degeneracy demonstrated above extends beyond the
 phenomenological nuisance families introduced in Section 4, a third nuisance family
@@ -248,7 +248,7 @@ stratification variable therefore depends on which latent assumption of the nuis
 model it probes.
 
 These values are substantially smaller than those obtained for the
-topology-mixture family (Section 7.3), reflecting the fact that the
+topology-mixture family (Section 6.3), reflecting the fact that the
 unclustered-energy perturbation modifies the MET vector without altering the
 relative population of jet multiplicity categories. Consequently, the
 jet-stratified diagnostics expose Family C less strongly than Family B, which
@@ -279,4 +279,4 @@ stronger conditional exposure.
 | B      | Topology-mixture          | 3.13         | 0.989   | 3,415   |
 | C      | Unclustered-energy shift  | 18.28        | 0.075   | 58      |
 
-![Identifiability landscape of the three nuisance families. The horizontal axis shows the inclusive p-value for goodness-of-fit to the injected target: higher values indicate better inclusive fit and therefore deeper degeneracy risk. The vertical axis shows the maximum conditional discrepancy across all recoil and jet stratifications, displayed on a symlog scale (linear below Δχ² = 100, logarithmic above). The dotted vertical line marks the p = 0.05 inclusive rejection threshold. Family B occupies a regime of deep inclusive degeneracy (p = 0.989) with catastrophic conditional failure (Δχ² = 3,415). Family C lies near the boundary of inclusive discriminability (p = 0.075) with modest conditional discrepancies (Δχ² = 58). The injected recoil model (Family A) anchors the upper-right corner at p ≈ 1 and Δχ² = 0. Shaded regions illustrate practical regimes of nuisance-model identifiability observed in this analysis: inclusive degeneracy (Δχ² < 10), marginal identifiability (10–100), and clear separation (Δχ² > 100). The dashed horizontal line indicates the χ² rejection threshold corresponding to p = 0.05 for 11 degrees of freedom. Here Δχ² denotes the difference between the stratified χ² values of the competing nuisance families evaluated at the inclusive best-fit parameters (Section 6.3).](figures/inclusive_fit/identifiability_landscape.png){width=80%}
+![Identifiability landscape of the three nuisance families. The horizontal axis shows the inclusive p-value for goodness-of-fit to the injected target: higher values indicate better inclusive fit and therefore deeper degeneracy risk. The vertical axis shows the maximum conditional discrepancy across all recoil and jet stratifications, displayed on a symlog scale (linear below Δχ² = 100, logarithmic above). The dotted vertical line marks the p = 0.05 inclusive rejection threshold. Family B occupies a regime of deep inclusive degeneracy (p = 0.989) with catastrophic conditional failure (Δχ² = 3,415). Family C lies near the boundary of inclusive discriminability (p = 0.075) with modest conditional discrepancies (Δχ² = 58). The injected recoil model (Family A) anchors the upper-right corner at p ≈ 1 and Δχ² = 0. Shaded regions illustrate practical regimes of nuisance-model identifiability observed in this analysis: inclusive degeneracy (Δχ² < 10), marginal identifiability (10–100), and clear separation (Δχ² > 100). The dashed horizontal line indicates the χ² rejection threshold corresponding to p = 0.05 for 11 degrees of freedom. Here Δχ² denotes the difference between the stratified χ² values of the competing nuisance families evaluated at the inclusive best-fit parameters (Section 5.3).](figures/inclusive_fit/identifiability_landscape.png){width=80%}

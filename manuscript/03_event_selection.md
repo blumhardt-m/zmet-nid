@@ -31,7 +31,7 @@ If multiple opposite-sign muon pairs satisfy the baseline selection, the Z candi
 
 The Z-candidate mass is taken from the four-vector sum of the best OS pair selected in Section 3.2. A mass window requirement of 80 GeV ≤ *m*(μ⁺μ⁻) ≤ 100 GeV is applied as a hard selection cut. Events whose best-pair mass falls outside this window are excluded from the analysis sample. This window defines the Z→μ⁺μ⁻ signal region used in all downstream inclusive and stratified comparisons.
 
-The dimuon transverse momentum p*_T*(Z) is taken as the magnitude of the transverse component of the four-vector sum of the two selected muons. It serves as the primary recoil variable for the pT(Z) stratification in Section 7.2.
+The dimuon transverse momentum p*_T*(Z) is taken as the magnitude of the transverse component of the four-vector sum of the two selected muons. It serves as the primary recoil variable for the pT(Z) stratification in Section 6.2.
 
 A separate histogram-mode estimator in the narrower window 85–97 GeV is used in the Phase 0 feasibility check to confirm the Z peak position without fitting assumptions. This narrower window is a diagnostic convention and does not define the analysis sample.
 
@@ -52,10 +52,10 @@ Events are assigned to one of three exclusive jet-multiplicity categories:
 - **1-jet:** exactly one such jet survives
 - **≥2-jet:** two or more such jets survive
 
-These three categories are used for the jet-multiplicity stratification in Section 7.3.
+These three categories are used for the jet-multiplicity stratification in Section 6.3.
 
-## 3.5 Analysis sample used in Section 7
+## 3.5 Analysis sample used in Section 6
 
 The selection described in Sections 3.2–3.4 was applied to the full CMS Open Data DoubleMuon 2016 NanoAOD dataset. A total of 2,147,195 events were processed. After applying all muon quality cuts, the opposite-sign requirement, the leading muon p*_T* threshold of 25 GeV, and the Z-mass window of 80–100 GeV, 233,524 events were retained. The overall selection efficiency is approximately 10.9%.
 
-This sample of 233,524 Z→μ⁺μ⁻ candidates constitutes the analysis sample for all comparisons in Section 7. The same selected events are used for the inclusive MET comparison (Section 7.1), the pT(Z)-stratified comparisons (Section 7.2), the jet-multiplicity-stratified comparisons (Section 7.3), and the MET binning robustness checks (Section 7.4). No additional event-level requirements are applied within the results section; the stratification into sub-samples uses the dimuon p*_T* and jet-multiplicity variables already computed during the selection. This selected sample is used for all inclusive and stratified comparisons reported in Section 7.
+This sample of 233,524 Z→μ⁺μ⁻ candidates constitutes the analysis sample for all comparisons in Section 6. The same selected events are used for the inclusive MET comparison (Section 6.1), the pT(Z)-stratified comparisons (Section 6.2), the jet-multiplicity-stratified comparisons (Section 6.3), and the MET binning robustness checks (Section 6.4). No additional event-level requirements are applied within the results section; the stratification into sub-samples uses the dimuon p*_T* and jet-multiplicity variables already computed during the selection. This selected sample is used for all inclusive and stratified comparisons reported in Section 6.

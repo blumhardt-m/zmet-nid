@@ -1,4 +1,4 @@
-# 6. Identifiability Test Design
+# 5. Identifiability Test Design
 
 This section describes the statistical framework used to test whether the two
 nuisance families defined in Section 4 can be distinguished using the inclusive
@@ -7,7 +7,7 @@ discriminating information absent from the inclusive view. The analysis uses the
 full selected sample of 233,524 Z→μ⁺μ⁻ events described in Section 3; no
 train/test split is applied.
 
-## 6.1 Injection Framework
+## 5.1 Injection Framework
 
 A target distribution is constructed by applying Family A (recoil-response
 distortion) to the observed MET values at a fixed injection parameter α₀:
@@ -28,7 +28,7 @@ of the data: both families are evaluated against the same target histogram, so
 differences in their fit quality reflect differences in shape-matching ability,
 not overall normalisation.
 
-## 6.2 Inclusive Fit Criterion
+## 5.2 Inclusive Fit Criterion
 
 Both families are fitted independently to the target histogram by grid search
 over their respective parameters. The fit metric is:
@@ -59,7 +59,7 @@ The working criterion for inclusive non-identifiability is p(B) > 0.05: if Famil
 cannot be rejected at the 5% level on the inclusive projection, the two families
 are operationally non-identifiable in that view.
 
-## 6.3 Conditional Evaluation Without Refitting
+## 5.3 Conditional Evaluation Without Refitting
 
 After the inclusive fit, both families are evaluated in conditional subsamples
 defined by pT(Z) and jet multiplicity. Crucially, the nuisance parameters are
@@ -102,7 +102,7 @@ float independently in each conditional subset would introduce additional degree
 freedom and would test the flexibility of the parameterisation rather than the
 internal consistency of the mechanism inferred from the inclusive distribution.
 
-## 6.4 Working-Point Selection
+## 5.4 Working-Point Selection
 
 The injection amplitude α₀ determines the size of the distortion injected into
 the target distribution and therefore controls how far the target departs from

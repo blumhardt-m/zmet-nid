@@ -1,66 +1,48 @@
 # ZMET-NID: MET Non-Identifiability Study
 
-**Title:** Limits of missing transverse momentum interpretation with public LHC data: a Z→μ⁺μ⁻ identifiability study using CMS Open Data
+This repository contains the reproducible analysis supporting the paper:
 
-**Status:** Protocol frozen, manuscript 80% complete, awaiting Phase 0 execution
+"Nuisance Parameter Non-Identifiability in Compressed Collider Observables."
 
-## Project Summary
+The project demonstrates how compression of high-dimensional collider events into
+reduced observables (such as missing transverse energy) can produce degeneracy between
+distinct nuisance mechanisms in inference pipelines.
 
-This study quantifies the degree to which MET tails in Z→μμ events are non-identifiable under reduced public-tier observability (NanoAOD), even when standard global validation checks pass.
+## Repository Structure
 
-**Core question:** Can multiple incompatible nuisance explanations fit the same MET distribution while passing standard validation?
+    analysis/        Analysis scripts
+    data/            Data manifests and SHA-256 checksums (no raw data)
+    manuscript/      Paper draft and figures
+    protocol/        Locked analysis protocol
+    outputs/         Result files and plots
 
-## Directory Structure
+## Analysis Summary
 
-```
-ZMET_NID/
-├── manuscript/          # Paper sections (JINST target)
-├── protocol/            # Frozen protocol v0.4
-├── code/
-│   ├── phase0/          # Feasibility gate scripts
-│   ├── analysis/        # Main analysis code
-│   └── utils/           # Helper functions
-├── data/
-│   ├── raw/             # Downloaded NanoAOD files
-│   └── processed/       # Processed outputs
-├── figures/             # Generated plots
-├── notes/               # Working notes
-└── literature/          # Reference papers
-```
+Z→μ⁺μ⁻ candidate events are selected from CMS Open Data (DoubleMuon 2016, NanoAOD
+tier, 13 TeV). Two phenomenological nuisance families — topology-mixture reweighting
+(Family B) and recoil-response scale distortion (Family A) — are fitted to an injected
+target MET distribution. The inclusive MET projection is found to be insufficient to
+discriminate between the two families at a physically motivated working point.
+Stratified projections conditioned on pT(Z) and jet multiplicity restore discrimination,
+yielding max Δχ² = 3,415.
 
-## Execution Checklist
+A third nuisance family (Family C, derived from CMS unclustered-energy systematic
+branches) is tested in the boundary regime of inclusive discriminability (χ² = 18.28,
+p = 0.075), demonstrating that identifiability is graded rather than binary.
 
-### Phase 0 (Feasibility Gates)
-- [ ] G1: File connectivity test
-- [ ] G2: Branch availability audit
-- [ ] G3: Z peak sanity check
+## Protocol Governance
 
-### Phase 1 (Analysis)
-- [ ] Event selection implementation
-- [ ] Nuisance family implementation
-- [ ] Train/test split
-- [ ] Fitting procedure
-- [ ] Stratified tests
-
-### Phase 2 (Writing)
-- [ ] Fill Section 7 with results
-- [ ] Write Section 3 (selection details)
-- [ ] Write Sections 8-9 (discussion/conclusions)
-- [ ] Final review
+The analysis protocol is frozen in `protocol/PROTOCOL.locked.yaml`. All analysis steps
+were executed against this locked protocol. SHA-256 checksums for input data files and
+the protocol document itself are recorded in `data/manifests/`.
 
 ## Key Files
 
-- `protocol/PROTOCOL_v0.4.md` - Frozen analysis protocol
-- `manuscript/00_abstract.md` - Publication-ready abstract
-- `code/phase0/feasibility_check.py` - Day-1 feasibility script
-
-## Kill Criteria
-
-Abort if:
-1. Required NanoAOD branches absent
-2. Cannot reproduce Z peak (not at 91±2 GeV)
-3. Event yield < 50k after selection
-4. Runtime > 2 weeks on available hardware
+- `protocol/PROTOCOL.locked.yaml` — Frozen analysis protocol
+- `manuscript/ZMET_NID_paper.pdf` — Compiled manuscript
+- `manuscript/00_abstract.md` through `manuscript/12_references.md` — Paper sections
+- `code/analysis/` — Analysis scripts (phase1_baseline.py, fit_minimal_nuisance_families.py, etc.)
+- `data/manifests/` — SHA-256 checksums and data source records
 
 ## Target Venue
 

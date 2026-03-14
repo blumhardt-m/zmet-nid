@@ -1,8 +1,8 @@
-# 8. Discussion
+# 7. Discussion
 
-## 8.1 Inclusive degeneracy and reduced observability
+## 7.1 Inclusive degeneracy and reduced observability
 
-As demonstrated in Section 7, the inclusive MET distribution admits both nuisance families despite the large event sample. The topology-mixture model achieves χ²(B) = 3.13 on 11 degrees of freedom (p = 0.989), a fit quality statistically indistinguishable from the injected recoil-response model that generated the target distribution.
+As demonstrated in Section 6, the inclusive MET distribution admits both nuisance families despite the large event sample. The topology-mixture model achieves χ²(B) = 3.13 on 11 degrees of freedom (p = 0.989), a fit quality statistically indistinguishable from the injected recoil-response model that generated the target distribution.
 
 This result indicates a practical non-identifiability of nuisance explanations in the inclusive projection: the observed data are consistent with more than one generative model, and no hypothesis test on the inclusive projection can select among them. The non-identifiability here is not a consequence of insufficient data — 233,524 events is a large sample by typical analysis standards — but of insufficient observable dimensionality relative to the complexity of the nuisance space being probed.
 
@@ -10,7 +10,7 @@ The explanation lies in the nature of the inclusive projection. Both Family A an
 
 This generalises a known challenge in MET analyses: inclusive validation distributes sensitivity across the entire observable space, potentially concentrating statistical power where signal-to-background from nuisance effects is weakest. The present study provides a quantitative illustration of this effect at a controlled and physically motivated working point.
 
-## 8.2 Stratified diagnostics as identifiability tests
+## 7.2 Stratified diagnostics as identifiability tests
 
 The stratified analyses demonstrate that the non-identifiability of the inclusive distribution does not reflect a fundamental indistinguishability of the two nuisance models. Conditional projections P(MET | S) expose clear model differences that are invisible to the inclusive comparison P(MET).
 
@@ -29,7 +29,7 @@ conditional diagnostics produce moderate discrepancies. The efficiency with whic
 stratification restores discrimination depends on which latent structural assumption
 of the nuisance family is violated.
 
-## 8.3 Implications for analyses using compressed public datasets
+## 7.3 Implications for analyses using compressed public datasets
 
 Public analysis formats such as NanoAOD provide a reduced set of reconstructed observables and omit low-level detector quantities, effectively compressing the dimensionality of the observable event space. The CMS NanoAOD format in particular reduces per-event storage by retaining only high-level reconstructed quantities, discarding lower-level detector information. For external analyses working exclusively with public NanoAOD, the observable space available for nuisance characterisation is materially narrower than that available in a full AOD or MiniAOD analysis. This reduction has a direct implication for identifiability: as the dimensionality of the observable space decreases, the probability that P(X) is degenerate across distinct nuisance models increases for any single observable X.
 
@@ -43,7 +43,7 @@ systematic-variation access.
 
 The conditional projections used here represent a minimal response to this issue, requiring only the stratification variables pT(Z) and jet multiplicity that are already present in NanoAOD. The approach requires no additional data access and imposes no significant computational overhead beyond the initial inclusive fit. It does require that the analyst commit to stratification variables in advance, before examining the stratified distributions, to avoid post-hoc selection of the stratification that best supports a preferred model — a standard requirement in confirmatory analysis that is made explicit in the frozen protocol accompanying this study.
 
-## 8.4 Limitations and scope of the demonstration
+## 7.4 Limitations and scope of the demonstration
 
 Several limitations bound the conclusions that can be drawn from this study.
 

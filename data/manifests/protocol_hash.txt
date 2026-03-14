@@ -1,0 +1,3 @@
+filename: PROTOCOL.locked.yaml
+sha256: 52300c0c58075d1a04124581676c4ad56bc5949df526fdad6e75c464b708b2f3
+date_verified: 2026-03-14
