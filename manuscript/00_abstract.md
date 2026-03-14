@@ -1,7 +1,9 @@
 \begin{center}
 Michael Blumhardt
 
-Independent Researcher, Medford, Oregon, USA
+Independent Researcher
+
+Medford, Oregon, USA
 
 blumhardt@gmail.com
 \end{center}
