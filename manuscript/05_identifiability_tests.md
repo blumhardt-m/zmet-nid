@@ -7,6 +7,45 @@ discriminating information absent from the inclusive view. The analysis uses the
 full selected sample of 233,524 Z→μ⁺μ⁻ events described in Section 3; no
 train/test split is applied.
 
+## 5.0 Identifiability under compressed observables
+
+A nuisance model θ is said to be identifiable from an observable Y if no two
+distinct parameter values θ₁ ≠ θ₂ produce the same distribution:
+P(Y | θ₁) = P(Y | θ₂) implies θ₁ = θ₂.
+When Y is a compressed projection of a higher-dimensional observable X — as
+occurs when full detector-level data are reduced to a summary quantity such as MET
+— this condition can fail even when the generating mechanisms are well separated in
+the original space. Formally, the reduction map R: X → Y can induce degeneracy of
+the form P(Y | θ₁) ≈ P(Y | θ₂) despite P(X | θ₁) ≠ P(X | θ₂).
+
+In the present analysis, X represents the full kinematic state of the event
+(including per-particle detector response, pileup multiplicity, and hadronic
+recoil structure), while Y = MET, the scalar missing transverse momentum exposed
+at the NanoAOD tier. The nuisance families A and B represent distinct mechanisms
+operating in the latent space X, yet the question posed here is whether their
+effects on the marginal distribution P(Y | θ) remain distinguishable after
+projection onto MET alone.
+
+Non-identifiability in P(Y | θ) is not merely a statistical-power limitation: it
+reflects a structural property of the observable space. Collecting more events does
+not resolve a degeneracy when P(Y | θ₁) = P(Y | θ₂) exactly; even the
+approximate case P(Y | θ₁) ≈ P(Y | θ₂) implies that the information required to
+distinguish θ₁ from θ₂ has been removed by the reduction R. Partial recovery of
+identifiability may still be achievable by conditioning on structural variables
+that survive the reduction — such as pT(Z) or jet multiplicity, both available in
+NanoAOD — since the conditional distributions P(Y | θ, Z = z) may still satisfy
+P(Y | θ₁, Z = z) ≠ P(Y | θ₂, Z = z) even when the marginals are degenerate.
+
+The identifiability landscape figure (Section 6) summarises the empirical result:
+the horizontal axis encodes the inclusive p-value (how well a family fits the
+target in the marginal MET projection), and the vertical axis encodes the maximum
+per-stratum Δχ² (how strongly conditional projections discriminate the family from
+the injected truth). A family occupying the upper-right region of this diagram —
+high inclusive p-value combined with high max Δχ² — represents the structurally
+hazardous case: inclusive validation suggests agreement, but conditional structure
+reveals that the mechanism is inconsistent with the truth. Family B occupies this
+region at the analysis working point.
+
 ## 5.1 Injection Framework
 
 A target distribution is constructed by applying Family A (recoil-response

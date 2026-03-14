@@ -44,6 +44,19 @@ the protocol document itself are recorded in `data/manifests/`.
 - `code/analysis/` — Analysis scripts (phase1_baseline.py, fit_minimal_nuisance_families.py, etc.)
 - `data/manifests/` — SHA-256 checksums and data source records
 
+## Additional Analysis
+
+The identifiability landscape figure (`figures/inclusive_fit/identifiability_landscape.png`)
+provides a two-dimensional summary of the main result. The horizontal axis is the
+inclusive p-value; the vertical axis is the maximum per-stratum Δχ² across all
+conditional projections (symlog scale). Three zones are marked: a green
+"inclusive degeneracy zone" (high p-value, low conditional Δχ²), a red "hidden
+failure zone" (high p-value, high conditional Δχ²), and a yellow marginal band
+near the p = 0.05 inclusive rejection boundary. Family B (topology-mixture)
+occupies the hidden failure zone at p = 0.989, max Δχ² = 3,415, demonstrating
+that inclusive agreement can mask mechanistic inconsistency detectable only
+through stratified diagnostics.
+
 ## Target Venue
 
 Journal of Instrumentation (JINST)
