@@ -3,8 +3,7 @@
 make_landscape_figure.py — identifiability landscape scatter plot
 
 Plots inclusive p-value vs. max per-stratum delta-chi² for the three nuisance
-families, visualising the spectrum from deep degeneracy (B) through boundary
-regime (C) to the injected truth (A).
+families, with horizontal interpretation bands and symlog y-axis.
 
 Output: figures/inclusive_fit/identifiability_landscape.png
 """
@@ -15,50 +14,70 @@ from pathlib import Path
 
 Path("figures/inclusive_fit").mkdir(parents=True, exist_ok=True)
 
-# Inclusive p-value and max per-stratum delta-chi² at alpha=0.05 working point
+# Data: inclusive p-value and max per-stratum delta-chi² at alpha=0.05
+# columns: label, p-value, max-Dchi2, color, marker, size, edgecolor, edgewidth
 families = [
-    ("A  (injected truth)",     1.000,  0.0,    "#333333", "s"),
-    ("B  (topology-mixture)",   0.989,  3415.0, "#d62728", "^"),
-    ("C  (unclustered energy)", 0.075,  58.0,   "#2ca02c", "o"),
+    ("A  (injected truth)",     1.000,  0.0,    "#333333", "s",  80, "white", 1.0),
+    ("B  (topology-mixture)",   0.989,  3415.0, "#d62728", "^", 140, "black", 1.2),
+    ("C  (unclustered energy)", 0.075,  58.0,   "#2ca02c", "o",  80, "white", 1.0),
 ]
 
 fig, ax = plt.subplots(figsize=(8.5, 6.0))
 
-thresh = 0.05   # p-value rejection boundary
+# --- symlog y-axis: linear below 100, log above ---
+ax.set_yscale("symlog", linthresh=100)
+ax.set_ylim(-8, 5000)
+ax.set_yticks([0, 10, 20, 50, 100, 200, 500, 1000, 3415])
+ax.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
 
-# --- zone shading ---
-# Red zone: high p-value (good inclusive fit) → deep degeneracy risk
-ax.fill_betweenx([0, 4400], thresh, 1.05,
-                 color="#d62728", alpha=0.08, label="_nolegend_")
-# Yellow zone: near the inclusive rejection boundary
-ax.fill_betweenx([0, 4400], thresh - 0.02, thresh + 0.02,
-                 color="#ff7f0e", alpha=0.15, label="_nolegend_")
-# Green zone: high conditional discrimination → stratification restores identifiability
-ax.fill_between([0, 1.05], 800, 4400,
-                color="#2ca02c", alpha=0.08, label="_nolegend_")
+# --- horizontal interpretation bands (Δχ² regimes) ---
+ax.axhspan(0,    10,   color="#aaaaaa", alpha=0.10)
+ax.axhspan(10,   100,  color="#aaaaaa", alpha=0.07)
+ax.axhspan(100,  5000, color="#aaaaaa", alpha=0.04)
 
-# Zone labels
-ax.text(0.55, 120,  "inclusive\ndegeneracy",  fontsize=8, color="#d62728",
-        ha="center", va="center", style="italic")
-ax.text(0.05, 120,  "boundary\nregime",       fontsize=8, color="#ff7f0e",
-        ha="center", va="center", style="italic")
-ax.text(0.50, 3000, "conditional discrimination\nrestores identifiability",
-        fontsize=8, color="#2ca02c", ha="center", va="center", style="italic")
+# Thin boundary lines between regimes
+ax.axhline(10,  color="gray", linewidth=0.6, alpha=0.4)
+ax.axhline(100, color="gray", linewidth=0.6, alpha=0.4)
 
-# Rejection threshold vertical line
-ax.axvline(thresh, color="gray", ls="--", lw=1.3, alpha=0.75,
-           label=f"p = 0.05 inclusive rejection threshold")
+# Band labels (placed in the clear centre of the plot, away from all three points)
+x_lbl = 0.30
+ax.text(x_lbl, 4.5, "Inclusive degeneracy zone",
+        fontsize=9, color="#666666", va="center", style="italic")
+ax.text(x_lbl, 35,  "Marginal identifiability",
+        fontsize=9, color="#666666", va="center", style="italic")
+ax.text(x_lbl, 700, "Clearly distinguishable",
+        fontsize=9, color="#666666", va="center", style="italic")
 
-# Data points
-label_offsets = [(-0.04, 280), (-0.08, -480), (0.025, 220)]
-for (label, pval, max_d, col, mk), (xo, yo) in zip(families, label_offsets):
-    ax.scatter(pval, max_d, s=160, color=col, marker=mk, zorder=6, linewidths=1.5,
-               edgecolors="white")
-    ax.annotate(label, xy=(pval, max_d), xytext=(pval + xo, max_d + yo),
+# --- Δχ² rejection reference line (p = 0.05, dof = 11, chi2 ≈ 19.7) ---
+chi2_ref = 19.7
+ax.axhline(chi2_ref, linestyle="--", linewidth=0.9, color="gray", alpha=0.65)
+ax.text(1.05, chi2_ref * 1.08, "p = 0.05 rejection threshold",
+        fontsize=8, color="gray", ha="right", va="bottom")
+
+# --- vertical p-value threshold line (marks inclusive rejection boundary) ---
+pval_thresh = 0.05
+ax.axvline(pval_thresh, color="gray", ls=":", lw=1.0, alpha=0.55,
+           label="p = 0.05 inclusive rejection threshold")
+
+# --- data points with annotation ---
+# (xytext offsets in data coordinates, chosen to avoid overlaps on symlog axis)
+annotations = [
+    (1.000,  0.0,    0.86, -3),     # A: label left and below
+    (0.989,  3415.0, 0.82, 1800),   # B: label left and lower (log region)
+    (0.075,  58.0,   0.14, 75),     # C: label right and above
+]
+for (label, pval, max_d, col, mk, sz, ec, elw), (px, py, lx, ly) in zip(families, annotations):
+    ax.scatter(pval, max_d, s=sz, color=col, marker=mk, zorder=6,
+               edgecolors=ec, linewidths=elw)
+    ax.annotate(label, xy=(pval, max_d), xytext=(lx, ly),
                 fontsize=10, ha="left", color=col,
                 arrowprops=dict(arrowstyle="-", color=col, lw=0.8, alpha=0.7))
 
-ax.set_xlabel("Inclusive p-value  (higher = better inclusive fit = deeper degeneracy risk)", fontsize=11)
+# --- axes and formatting ---
+ax.set_xlabel(
+    "Inclusive p-value  (higher = better inclusive fit = deeper degeneracy risk)",
+    fontsize=11,
+)
 ax.set_ylabel("max Δχ²  across all stratifications", fontsize=11)
 ax.set_title(
     "Identifiability landscape: inclusive fit quality vs. conditional discrimination\n"
@@ -66,7 +85,7 @@ ax.set_title(
     fontsize=10,
 )
 ax.set_xlim(-0.05, 1.08)
-ax.set_ylim(-400, 4400)
+ax.grid(alpha=0.15)
 ax.legend(fontsize=9, loc="upper left")
 
 fig.tight_layout()
