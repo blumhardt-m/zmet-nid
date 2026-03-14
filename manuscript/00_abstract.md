@@ -1,3 +1,11 @@
+\begin{center}
+Michael Blumhardt
+
+Independent Researcher, Medford, Oregon, USA
+
+blumhardt@gmail.com
+\end{center}
+
 # Abstract
 
 Inclusive validation tests of collider observables can admit multiple nuisance explanations when analyses rely on reduced-observability data formats. This study investigates this identifiability problem using the missing transverse momentum (MET) distribution in Z→μ⁺μ⁻ events reconstructed from CMS Open Data. Within the CMS Collaboration, MET performance has been extensively characterized using full detector information and dedicated systematic variations. By contrast, external analyses using CMS Open Data are necessarily restricted to reduced-tier representations, such as NanoAOD, which expose MET primarily as a reconstructed end-product.
