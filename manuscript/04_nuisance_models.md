@@ -103,6 +103,8 @@ larger MET than zero-jet events.
 Crucially, Family B does not alter the MET value of any individual event. It
 changes only the effective population of each jet-multiplicity stratum.
 
+The nuisance families are chosen to represent qualitatively distinct physical mechanisms: topology mixture modifies the composition of event kinematics entering the MET distribution, while recoil-scale perturbations model detector-level response distortions. Demonstrating degeneracy across these mechanism classes indicates that the indistinguishability arises from observable compression rather than from trivial functional parameterizations.
+
 ## 4.5 Mechanistic Contrast
 
 The two families modify the inclusive MET distribution through fundamentally

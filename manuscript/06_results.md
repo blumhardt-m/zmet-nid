@@ -279,4 +279,20 @@ stronger conditional exposure.
 | B      | Topology-mixture          | 3.13         | 0.989   | 3,415   |
 | C      | Unclustered-energy shift  | 18.28        | 0.075   | 58      |
 
-![Identifiability landscape of the three nuisance families. The horizontal axis shows the inclusive p-value for goodness-of-fit to the injected target: higher values indicate better inclusive fit and therefore deeper degeneracy risk. The vertical axis shows the maximum conditional discrepancy across all recoil and jet stratifications, displayed on a symlog scale (linear below Δχ² = 100, logarithmic above). The dotted vertical line marks the p = 0.05 inclusive rejection threshold. Family B occupies a regime of deep inclusive degeneracy (p = 0.989) with catastrophic conditional failure (Δχ² = 3,415). Family C lies near the boundary of inclusive discriminability (p = 0.075) with modest conditional discrepancies (Δχ² = 58). The injected recoil model (Family A) anchors the upper-right corner at p ≈ 1 and Δχ² = 0. Shaded regions illustrate practical regimes of nuisance-model identifiability observed in this analysis: inclusive degeneracy (Δχ² < 10), marginal identifiability (10–100), and clear separation (Δχ² > 100). The dashed horizontal line indicates the χ² rejection threshold corresponding to p = 0.05 for 11 degrees of freedom. Here Δχ² denotes the difference between the stratified χ² values of the competing nuisance families evaluated at the inclusive best-fit parameters (Section 5.3).](figures/inclusive_fit/identifiability_landscape.png){width=80%}
+Figure 5 summarizes the identifiability structure of the nuisance families: while several configurations exhibit strong inclusive agreement with the observed MET distribution, stratified diagnostics reveal large conditional discrepancies once the data are partitioned by recoil-sensitive variables.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{figures/identifiability_landscape.pdf}
+\caption{
+Identifiability landscape for nuisance mechanism families.
+The horizontal axis shows inclusive goodness-of-fit between simulated
+and observed MET distributions. The vertical axis shows the maximum
+conditional discrepancy across predefined strata.
+Configurations in the upper-right region exhibit strong inclusive
+agreement while producing large conditional discrepancies,
+illustrating how compression of collider events into reduced observables
+can mask mechanistic differences between nuisance models.
+}
+\label{fig:identifiability_landscape}
+\end{figure}

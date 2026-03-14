@@ -28,6 +28,8 @@ therefore addresses a complementary question: to what extent competing nuisance
 explanations remain distinguishable when inference is restricted to the reduced
 observable space available at the public data tier.
 
+Reduced collider observables compress high-dimensional event structure into a limited set of summary statistics; this compression can erase the information required to distinguish physically distinct nuisance mechanisms, creating non-identifiability in inclusive validation tests.
+
 The present study addresses this issue by focusing on Z→μ⁺μ⁻ events, which provide a well-established standard candle for MET studies. In these events, genuine MET is expected to be negligible, such that the observed MET distribution is dominated by instrumental effects. The analysis is restricted to publicly available NanoAOD-level observables, explicitly adopting the perspective of an external analyst operating within the constraints of CMS Open Data.
 
 Rather than attempting to reproduce collaboration-grade MET systematics or to propose improvements to MET reconstruction, the objective is to assess the discriminating power of public-tier observables with respect to competing, physically plausible nuisance explanations for MET tails. Two phenomenological nuisance families are examined, representing distinct mechanisms by which the inclusive MET distribution may be distorted: a recoil-response scale distortion correlated with pT(Z), and a topology-mixture reweighting that alters the relative population of jet-multiplicity categories. These mechanisms can produce similar distortions in the marginal MET distribution but imply different conditional structure when the data are stratified by recoil or by event topology.
