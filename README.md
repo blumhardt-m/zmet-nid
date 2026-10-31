@@ -1,3 +1,5 @@
+**Publication status — October 30, 2026:** Unpublished manuscript. No preprint has been posted.
+
 # ZMET-NID: MET Non-Identifiability Study
 
 This repository contains the reproducible analysis supporting the paper:
